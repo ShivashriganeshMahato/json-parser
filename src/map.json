@@ -1,18 +1,17 @@
 {
-  "0": {
-    "0": [
+  "0": [
+    [
       "B                                          B",
       "B                                          B",
       "B                                          B",
-      "B   p                                      B",
+      "B  p                                       B",
       "B   gggttt                                 B",
       "B                                          B",
       "B                       ttt                B",
       "B                  tt   ggg                B",
-      "B                    ttt                   B",
-      "Bgggggggg    tt   gg ggg   ggggggg         B"
+      "B                    ttt                   B"
     ],
-    "1": [
+    [
       "B                                          B",
       "B                                          B",
       "B                                          B",
@@ -22,35 +21,33 @@
       "B                       ttt                B",
       "B                  tt   ggg                B",
       "B                    ttt                   B",
-      "Bgggggggg    tt   gg ggg   ggggggg         B"
+      "Bggggggggggggggggg ggggggggg ggggg ggg gg gB"
     ],
-    "2": [
+    [
       "B                                          B",
       "B                                          B",
       "B                                          B",
-      "B   p                                      B",
+      "B    p                                     B",
       "B   gggttt                                 B",
       "B                                          B",
       "B                       ttt                B",
       "B                  tt   ggg                B",
-      "B                    ttt                   B",
-      "Bgggggggg    tt   gg ggg   ggggggg         B"
+      "B                    ttt                   B"
     ]
-  },
-  "1": {
-    "0": [
+  ],
+  "1": [
+    [
       "B                                          B",
       "B                                          B",
       "B                                          B",
-      "B   p                                      B",
+      "B  p                                       B",
       "B   gggttt                                 B",
       "B                                          B",
       "B                       ttt                B",
       "B                  tt   ggg                B",
-      "B                    ttt                   B",
-      "Bgggggggg    tt   gg ggg   ggggggg         B"
+      "B                    ttt                   B"
     ],
-    "1": [
+    [
       "B                                          B",
       "B                                          B",
       "B                                          B",
@@ -60,7 +57,29 @@
       "B                       ttt                B",
       "B                  tt   ggg                B",
       "B                    ttt                   B",
-      "Bgggggggg    tt   gg ggg   ggggggg         B"
+      "Bggggggggggggggggg ggggggggg ggggg ggg gg gB"
+    ],
+    [
+      "B                                          B",
+      "B                                          B",
+      "B                                          B",
+      "B    p                                     B",
+      "B   gggttt                                 B",
+      "B                                          B",
+      "B                       ttt                B",
+      "B                  tt   ggg                B",
+      "B                    ttt                   B"
+    ],
+    [
+      "B                                          B",
+      "B                                          B",
+      "B                                          B",
+      "B    p                                     B",
+      "B   gggttt                                 B",
+      "B                                          B",
+      "B                       ttt                B",
+      "B                  tt   ggg                B",
+      "B                    ttt                   B"
     ]
-  }
+  ]
 }
