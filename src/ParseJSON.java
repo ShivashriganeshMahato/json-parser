@@ -1,9 +1,10 @@
-/* ParseJSON.java */
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+/**
+ @author Michael Beam, Shivashriganesh Mahato
+*/
 public class ParseJSON {
     public static void main(String[] args) {
         String filePath = "src/map.json";
