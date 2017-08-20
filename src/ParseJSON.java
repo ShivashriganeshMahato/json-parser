@@ -3,6 +3,7 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ParseJSON {
     public static void main(String[] args) {
@@ -50,71 +51,47 @@ public class ParseJSON {
         // Split jsonContents into an array, one entry per line
         String[] s = jsonContents.toString().split("\n");
 
-        // Scan through s, clean it up a bit and calculate array bounds
+        // Scan through s, clean it up and store the data in a list
+        ArrayList<ArrayList<ArrayList<String>>> jsonList = new ArrayList<>();
+
         int world = -1;
         int level = -1;
-        int tempLvl = -1;
-        int obj = -1;
-        int tempObj;
 
         for (int i = 0; i < s.length; i++) {
             if (s[i].indexOf('[') > 0) {
                 if (s[i].indexOf('"') > 0) {
                     String temp = s[i].substring(s[i].indexOf('"') + 1);
+                    jsonList.add(new ArrayList<>());
                     world = Integer.parseInt(temp.substring(0, temp.indexOf('"')));
-                    tempLvl = -1;
+                    level = -1;
                 } else {
-                    tempObj = -1;
-                    tempLvl++;
+                    jsonList.get(world).add(new ArrayList<>());
+                    level++;
                     for (int j = i + 1; j < s.length; j++) {
                         if (s[j].indexOf(']') > 0) {
                             i = j;
                             break;
                         }
-                        tempObj++;
-                        s[j]=s[j].substring(s[j].indexOf('"') + 1);
-                        s[j]=s[j].substring(0,s[j].indexOf('"'));
+                        s[j] = s[j].substring(s[j].indexOf('"') + 1);
+                        s[j] = s[j].substring(0, s[j].indexOf('"'));
+                        jsonList.get(world).get(level).add(s[j]);
                     }
-
-                    if (tempObj > obj)
-                        obj = tempObj;
                 }
             }
-
-            if (tempLvl > level)
-                level = tempLvl;
         }
 
 
-        // Create 3 dimensional array to hold JSON values
-        String[][][] jsonArray = new String[world + 1][level + 1][obj + 1];
+        // Create 3 dimensional array to hold JSON values from the list
+        String[][][] jsonArray = new String[jsonList.size()][][];
 
-        // Loop through s array and assign values to jsonArray 3D array
-        for (int i = 0; i < s.length; i++) {
-            if (s[i].indexOf('[') > 0) {
-                if (s[i].indexOf('"') > 0) {
-                    String temp = s[i].substring(s[i].indexOf('"') + 1);
-                    world = Integer.parseInt(temp.substring(0, temp.indexOf('"')));
-                    tempLvl = -1;
-                } else {
-                    tempObj = -1;
-                    tempLvl++;
-                    for (int j = i + 1; j < s.length; j++) {
-                        if (s[j].indexOf(']') > 0) {
-                            i = j;
-                            break;
-                        }
-                        tempObj++;
-                        jsonArray[world][tempLvl][tempObj] = s[j];
-                    }
-
-                    if (tempObj > obj)
-                        obj = tempObj;
+        for (int i = 0; i < jsonList.size(); i++) {
+            jsonArray[i] = new String[jsonList.get(i).size()][];
+            for (int j = 0; j < jsonList.get(i).size(); j++) {
+                jsonArray[i][j] = new String[jsonList.get(i).get(j).size()];
+                for (int k = 0; k < jsonList.get(i).get(j).size(); k++) {
+                    jsonArray[i][j][k] = jsonList.get(i).get(j).get(k);
                 }
             }
-
-            if (tempLvl > level)
-                level = tempLvl;
         }
 
         return jsonArray;
